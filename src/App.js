@@ -3,8 +3,9 @@ import MovieCard from './MovieCard';
 import SearchIcon from "./search.svg";
 import { useState, useEffect } from 'react';
 
-const API_KEY = "bdeb52fe";
+const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}&`;
+const API_INITIAL_QUERY = process.env.REACT_APP_INITIAL_QUERY;
 
 // const movie1 = {
 //     "Title": "Avengers: Endgame",
@@ -27,7 +28,7 @@ function App() {
   }
 
   useEffect(() => {
-    searchMovies("Avengers");
+    searchMovies(API_INITIAL_QUERY);
   }, []);
 
   return (
